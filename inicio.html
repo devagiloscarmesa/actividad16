@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="title" content="Conjunto Residencial - Mensualidad">
+    <link rel="shortcut icon" href="imagenes/iconos/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Aplicativo encargado de calcular la mensualidad a pagar por parte de los propietarios">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <title>Inicio</title>
+  </head>
+  <body>
+    <section id="page-grid" class="container-fluid">
+        <section id="main" class="row justify-content-md-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-header text-center bg-info text-white">
+                        Trabajador
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_nueva_mensualidad">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="genero_propietario">Nombre(*)</label>
+                                        <select class="form-control" id="nombre" name="nombre" required>
+                                            <option style="display: none;"></option>
+                                            <option value="usuario1">Usuario 1</option>
+                                            <option value="usuario2">Usuario 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for="fecha_nac_propietario">Fecha de nacimiento(*)</label>
+                                        <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" required placeholder="Y-m-d">
+                                    </div>
+                                </div>
+                            </div>                                        
+                        </form>
+                    </div>
+                    <div class="card-footer ">
+                        <button type="button" class="btn btn-primary btn-lg btn-block disabled" disabled id="enviar">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <p>Copyrigth © 2020 | Medellín - <a href="https://www.antioquia.gov.co/" target="_top">Antioquia</a>, Colombia | <a target="_blank" href="https://github.com"><i class="fa fa-github"></i></a> | <a target="_blank" href="https://facebook.com"><i class="fa fa-facebook-square"></i></a> | <a target="_blank" href="https://twitter.com"><i class="fa fa-twitter"></i></a> </p>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="module" src="js/script.js?c=1" type="text/javascript"></script>
+  </body>
+</html>
+
