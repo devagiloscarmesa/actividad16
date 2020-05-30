@@ -11,7 +11,7 @@ $(document).ready(() => {
 
         let fecha_nacimiento = new Date($("#fecha_nac").val()); //Se captura la fecha de nacimiento y se crea un objeto de tipo Date
         if(fecha_nacimiento!=undefined && !isNaN(fecha_nacimiento.getTime())){ // Se valida que la fecha sea valida
-        let edad = calcular_edad(fecha_nacimiento); //Obtenemos la edad, de una función que realiza el calculo de la edad
+            let edad = calcular_edad(fecha_nacimiento); //Obtenemos la edad, de una función que realiza el calculo de la edad
             if(edad >= 18){ //Validamos que sea mayor de edad, para proceder a activarle el boton de envío
                 $('#enviar').attr('disabled', false); //Quitamos el desabilitado del botón. 
                 $('#enviar').removeClass('disabled'); //Removemos una clase del botón 
@@ -24,6 +24,13 @@ $(document).ready(() => {
             $('#enviar').addClass('disabled');//Adicionamos la clase para que el boton tome la apriencia de deshabilitado.
         }
     });
+    
+    $('#enviar').click((e) => {
+        console.log("prueba");
+        if(document.getElementById("frm_trabajador").reportValidity()){
+            window.location.assign(`registro.html?${$("#frm_trabajador").serialize()}`);
+        }
+    })
     
     /**
      * Esta funcón sirve para realizar el calculo de 
