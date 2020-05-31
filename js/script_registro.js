@@ -27,14 +27,51 @@ $(document).ready(() => {
         }else{
             alert("Se se completaron los 10 estudiantes");
         }
-        
+         
     });
     
+    $("#calcular_mejor_peor").click((e) => {
+        if(seguimiento.length == 0){
+            alert("No existe estudiantes.");
+        }else if(seguimiento.length == 1){
+            alert("Solo hay un estudiante.");
+        }else{
+            console.log(buscarEstudianteMenorPromendio());
+            console.log(buscarEstudianteMayorPromendio());
+            window.location.assign(`mejor_peor_promedio.html?${buscarEstudianteMenorPromendio()}&${buscarEstudianteMayorPromendio()}`);
+        }
+    });
+    
+    function buscarEstudianteMenorPromendio(){
+        let menorPromedio = Number.MAX_SAFE_INTEGER;
+        let estudiante = {};
+        seguimiento.forEach((est) => {
+            let promedio = (parseFloat(parseFloat(est.nota1) + parseFloat(est.nota2) + parseFloat(est.nota3)) / 3).toFixed(2);
+            if(promedio < menorPromedio){
+                menorPromedio = promedio;
+                estudiante = est;
+            }
+        });
+        return `menor_id_estudiante=${estudiante.id_estudiante}&menor_desc_estudiante=${estudiante.desc_estudiante}&menor_edad=${estudiante.edad}&menor_nota1=${estudiante.nota1}&menor_nota2=${estudiante.nota2}&menor_nota3=${estudiante.nota3}&menor_promedio=${menorPromedio}`;
+    }
+     
+    function buscarEstudianteMayorPromendio(){
+        let mayorPromedio = -1;
+        let estudiante = {};
+        seguimiento.forEach((est) => {
+            let promedio = (parseFloat(parseFloat(est.nota1) + parseFloat(est.nota2) + parseFloat(est.nota3)) / 3).toFixed(2);
+            if(promedio > mayorPromedio){
+                mayorPromedio = promedio;
+                estudiante = est;
+            }
+        });
+        return `mayor_id_estudiante=${estudiante.id_estudiante}&mayor_desc_estudiante=${estudiante.desc_estudiante}&mayor_edad=${estudiante.edad}&mayor_nota1=${estudiante.nota1}&mayor_nota2=${estudiante.nota2}&mayor_nota3=${estudiante.nota3}&mayor_promedio=${mayorPromedio}`;
+    } 
     function obtenerIdNoRepetido(){
         while(true){
             let id = Math.floor(generarNumeroAleatorio(1, 10));
             let exitste = seguimiento.find((est) => est.id_estudiante == id);
-            if(exitste ==  undefined)
+            if(exitste == undefined)
                 return id
         }
     }
@@ -45,7 +82,7 @@ $(document).ready(() => {
     
     function proyectarSeguimiento(){
         let html = seguimiento.map( (estudiante) => {
-            let promedio = (parseFloat(estudiante.nota1 + estudiante.nota2 + estudiante.nota3) / 3).toFixed(2);
+            let promedio = (parseFloat(parseFloat(estudiante.nota1) + parseFloat(estudiante.nota2) + parseFloat(estudiante.nota3)) / 3).toFixed(2);
             return `<tr>
                     <td>${estudiante.desc_estudiante}</td>
                     <td>${estudiante.edad}</td>
