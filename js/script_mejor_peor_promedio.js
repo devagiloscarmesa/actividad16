@@ -10,7 +10,7 @@ $(document).ready(() => {
     
     html = `<tr class = "bg-success">
             <td>Mayor</td>
-            <td>${varQuery.mayor_desc_estudiante}</td>
+            <td>${varQuery.mayor_desc_estudiante.replace("%",  " ")}</td>
             <td>${varQuery.mayor_edad}</td>
             <td>${varQuery.mayor_nota1}</td>
             <td>${varQuery.mayor_nota2}</td>
@@ -19,7 +19,7 @@ $(document).ready(() => {
         </tr>
          <tr class = "bg-danger">
             <td>Menor</td>
-            <td>${varQuery.menor_desc_estudiante}</td>
+            <td>${varQuery.menor_desc_estudiante.replace("%",  " ")}</td>
             <td>${varQuery.menor_edad}</td>
             <td>${varQuery.menor_nota1}</td>
             <td>${varQuery.menor_nota2}</td>
